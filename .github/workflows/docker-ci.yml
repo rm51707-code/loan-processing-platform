@@ -28,13 +28,13 @@ jobs:
 
     - name: Build each service with Maven
       run: |
-        cd backend/auth-service && mvn clean package -DskipTests && cd ..
-        cd backend/user-service && mvn clean package -DskipTests && cd ..
-        cd backend/loan-service && mvn clean package -DskipTests && cd ..
-        cd backend/credit-score-service && mvn clean package -DskipTests && cd ..
-        cd backend/discovery-server && mvn clean package -DskipTests && cd ..
-        cd backend/api-gateway && mvn clean package -DskipTests && cd ..
-        cd backend/notification-service && mvn clean package -DskipTests && cd ..
+        cd backend/auth-service && mvn clean package -DskipTests && cd ../../
+        cd backend/user-service && mvn clean package -DskipTests && cd ../../
+        cd backend/loan-service && mvn clean package -DskipTests && cd ../../
+        cd backend/credit-score-service && mvn clean package -DskipTests && cd ../../
+        cd backend/discovery-server && mvn clean package -DskipTests && cd ../../
+        cd backend/api-gateway && mvn clean package -DskipTests && cd ../../
+        cd backend/notification-service && mvn clean package -DskipTests && cd ../../
 
 
     - name: Docker Build
