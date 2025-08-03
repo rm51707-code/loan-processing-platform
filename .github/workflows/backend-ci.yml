@@ -53,4 +53,4 @@ jobs:
     #   run: docker push yourusername/auth-service
 
     - name: Docker Compose Up
-      run: docker-compose up -d
+      run: cd backend && docker-compose up -d && cd ..
