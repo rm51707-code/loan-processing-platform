@@ -28,22 +28,22 @@ jobs:
 
     - name: Build each service with Maven
       run: |
-        cd auth-service && mvn clean package -DskipTests && cd ..
-        cd user-service && mvn clean package -DskipTests && cd ..
-        cd loan-service && mvn clean package -DskipTests && cd ..
-        cd credit-score-service && mvn clean package -DskipTests && cd ..
-        cd discovery-server && mvn clean package -DskipTests && cd ..
-        cd api-gateway && mvn clean package -DskipTests && cd ..
-        cd notification-service && mvn clean package -DskipTests && cd ..
+        cd backend/auth-service && mvn clean package -DskipTests && cd ../../
+        cd backend/user-service && mvn clean package -DskipTests && cd ../../
+        cd backend/loan-service && mvn clean package -DskipTests && cd ../../
+        cd backend/credit-score-service && mvn clean package -DskipTests && cd ../../
+        cd backend/discovery-server && mvn clean package -DskipTests && cd ../../
+        cd backend/api-gateway && mvn clean package -DskipTests && cd ../../
+        cd backend/notification-service && mvn clean package -DskipTests && cd ../../
 
 
     - name: Docker Build
       run: |
-        docker build -t auth-service ./auth-service
-        docker build -t user-service ./user-service
-        docker build -t loan-service ./loan-service
-        docker build -t api-gateway ./api-gateway
-        docker build -t discovery-server ./discovery-server
+        docker build -t auth-service ./backend/auth-service
+        docker build -t user-service ./backend/user-service
+        docker build -t loan-service ./backend/loan-service
+        docker build -t api-gateway ./backend/api-gateway
+        docker build -t discovery-server ./backend/discovery-server
 
     # Optional: Push to Docker Hub
     # - name: Login to DockerHub
@@ -53,4 +53,4 @@ jobs:
     #   run: docker push yourusername/auth-service
 
     - name: Docker Compose Up
-      run: docker-compose up -d
+      run: cd backend && docker-compose up -d && cd ..
